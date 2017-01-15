@@ -2,11 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WarsawJs Workshop #2 Blog</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WarsawJS Workshop #2 Blog</title>
 
+	<script src="node_modules/mustache/mustache.js"></script>
+	<script src="scripts/libs/routie.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
 </head>
 <body>
-    <h1>WarsawJs Workshop #2 - Blog</h1>
+
+<nav>
+    <div class="nav-wrapper container">
+        <a href="#" class="brand-logo">WarsawJs Workshop #2</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">home</a></li>
+            <li><a href="#o-mnie">o mnie</a></li>
+            <li><a href="#napisz">+ dodaj</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="page" class="container"></div>
+
+<!-- POST LIST -->
+<script id="template-post-list" type="text/html" class="container">
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>Recent posts</h4></li>
+        {{#posts}}
+        <li class="collection-item avatar">
+            <a href="#post/{{id}}">
+                <i class="material-icons circle green">insert_chart</i>
+                <span class="title">{{title}}</span>
+            </a>
+            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+        {{/posts}}
+    </ul>
+</script>
+
+<!-- POST DETAILS-->
+
+<!-- POST DETAILS-->
+<script id="template-post" type="text/html" class="container">
+    <article class="card-panel">
+        <h5>
+            <a href="#">
+                {{post.title}}
+            </a>
+
+            <a href="#"><i class="right material-icons">delete</i></a>
+        </h5>
+
+        <p>{{post.text}}</p>
+    </article>
+</script>
+
+<!-- POST FORM -->
+<script id="template-post-form" type="text/html" class="container">
+
+    <section class="card-panel">
+        <h1>Dodaj post</h1>
+
+        <form>
+            <div class="input-field">
+                <i class="material-icons prefix">label_outline</i>
+                <input
+                        id="post-title"
+                        type="text"
+                        name="title"
+                        placeholder="Tytuł"
+                        required
+                />
+            </div>
+
+            <div class="input-field">
+                <i class="material-icons prefix">comment</i>
+                <textarea
+                        id="post-body"
+                        class="materialize-textarea"
+                        name="text"
+                        placeholder="Treść"
+                        required
+                ></textarea>
+            </div>
+
+            <input
+                    id="add-post"
+                    class="btn waves-effect waves-light"
+                    type="submit"
+                    value="Dodaj nowy post">
+        </form>
+    </section>
+
+</script>
+
+<!-- ABOUT -->
+<script id="template-about" type="text/html" class="container">
+    <ul class="collection with-header">
+        <li class="collection-header"><h4>About</h4></li>
+        <li class="collection-item avatar">
+            <i class="material-icons circle">grade</i>
+            <span class="title">name</span>
+            <p>Welcome to my blog <br>
+                Here you will know how to do the JavaScript the easy way :)
+            </p>
+        </li>
+    </ul>
+</script>
+
+<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.41/system.js"></script>
+
+<script>
+    SystemJS.config({
+        baseURL: 'scripts'
+    });
+    SystemJS.import('main.js');
+
+</script>
 
 </body>
 </html>
