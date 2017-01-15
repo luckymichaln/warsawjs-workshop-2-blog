@@ -20,7 +20,12 @@ export class PostService {
 
     static get(id) {
         return new Promise((resolve, reject) => {
-            resolve(posts[parseInt(id)-1]);
+            for(let post of posts) {
+                if(post.id === parseInt(id)) {
+                    return resolve(post);
+                }
+            }
+            reject('not found');
         })
     }
 }
