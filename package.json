@@ -1,0 +1,23 @@
+{
+  "name": "warsawjs-workshop-2-blog",
+  "version": "1.0.0",
+  "description": "Blog v1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckymichaln/warsawjs-workshop-2-blog.git"
+  },
+  "author": "Michal Nowak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luckymichaln/warsawjs-workshop-2-blog/issues"
+  },
+  "homepage": "https://github.com/luckymichaln/warsawjs-workshop-2-blog#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}
