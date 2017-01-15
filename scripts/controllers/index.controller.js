@@ -8,7 +8,6 @@ routie('', controller);
 
 export function controller() {
     PostService.list().then(posts=>{
-      console.log('posty z serwisu', posts);
         PostListComponent.render({posts:posts.reverse()}, $page)
     })
 }
